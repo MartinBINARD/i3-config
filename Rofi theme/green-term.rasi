@@ -1,0 +1,85 @@
+* {
+    Black: #000000;
+    DarkGreen: #003B00;
+    Green: #0CCC68;
+    Malachite: #00FF41;
+
+    font: "Fira Code 12";
+
+    background-color: transparent; 
+    text-color: @Malachite;
+    border-color: @Malachite;
+
+    margin: 0px;
+    padding: 0px;
+    spacing: 0px;
+}
+
+window {
+    location: center;
+    
+    border: 1;
+
+    background-color: @Black;
+}
+
+mainbox {
+    padding: 12px;
+}
+
+inputbar {
+    background-color: @DarkGreen;
+
+    border: 2px;
+    
+    padding: 8px 16px;
+    spacing: 8px;
+    children: [ prompt, entry ];
+}
+
+entry {
+    placeholder: "Search program";
+    placeholder-color: @Malachite;
+}
+
+message {
+    margin: 12px 0 0;
+    border-color: @DarkGreen;
+    background-color: @DarkGreen;
+}
+
+textbox {
+    padding: 8px 24px;
+}
+
+listview {
+    background-color: transparent;
+
+    margin: 12px 0 0;
+    lines: 8;
+    columns: 1;
+
+    fixed-height: false;
+}
+
+element {
+    padding: 8px 16px;
+    spacing: 8px;
+}
+
+element normal active {
+    text-color: @Green;
+}
+
+element selected normal, element selected active {
+    border: 1;
+}
+
+element-icon {
+    size: 1em;
+    vertical-align: 0.5;
+}
+
+element-text {
+    text-color: inherit;
+}
