@@ -1,6 +1,6 @@
 # i3wm config
 
-**Main branch - Commit #2**
+**Main branch - Commit #3**
 
 ## Description
 
@@ -8,10 +8,10 @@
 
 ## Change done
 
-- Add basic config.
+- Add redshift.
 
 ## Command to run
 
 ```
-sudo apt install i3 xorg lightdm slick-greeter lightdm-settings lxappearance nitrogen arandr pcmanfm firefox-esr pulseaudio alsa-utils pavucontrol cool-retro-term blueman network-manager-gnome thunar ranger libreoffice bleachbit flameshot gparted file-roller htop neofetch vlc bc calculator xpdf
+sudo apt install i3 xorg lightdm slick-greeter lightdm-settings lxappearance nitrogen arandr pcmanfm firefox-esr pulseaudio alsa-utils pavucontrol cool-retro-term blueman network-manager-gnome thunar ranger libreoffice bleachbit flameshot gparted file-roller htop neofetch vlc bc calculator xpdf redshift
 ```
