@@ -217,6 +217,7 @@ exec --no-startup-id nitrogen --restore
 
 # Lockscreen
 bindsym $mod+l exec i3lock -c 000000
+exec --no-startup-id -time 2 -locker "i3lock -c 000000"
 
 # Applet
 exec --no-startup-id nm-applet
