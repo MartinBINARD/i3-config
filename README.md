@@ -7,7 +7,7 @@
 ## Command to run
 
 ```
-sudo apt install i3 xorg lightdm slick-greeter lightdm-settings lxappearance nitrogen arandr pcmanfm firefox-esr pulseaudio alsa-utils pavucontrol terminator blueman network-manager-gnome thunar libreoffice bleachbit flameshot gparted file-roller htop neofetch vlc bc calculator xpdf redshift xautolock rofi
+sudo apt install i3 xorg lightdm slick-greeter lightdm-settings lxappearance nitrogen arandr pcmanfm firefox-esr pulseaudio alsa-utils pavucontrol terminator blueman network-manager-gnome thunar libreoffice bleachbit flameshot gparted file-roller htop neofetch vlc bc calculator xpdf redshift xautolock rofi git
 ```
 
 ## Rofi
@@ -17,3 +17,8 @@ sudo apt install i3 xorg lightdm slick-greeter lightdm-settings lxappearance nit
 ```
 rofi-theme-selector
 ```
+
+## Thunar
+
+- In `Edit` → `Configure custom actions...` → `:ferris_wheel:` (edit action menu) → Insert a custom command indicating the current terminal in the command entry
+- Ex : `/usr/bin/terminator`
