@@ -190,10 +190,10 @@ bar {
 	position top
 	colors {
         	background #000000
-        	statusline #0CCC68
+        	statusline #11aaaa
         	separator #ffffff
 
-        	focused_workspace  #0CCC68 #0CCC68 #ffffff
+        	focused_workspace  #11aaaa #11aaaa #ffffff
         	active_workspace   #333333 #5F676A #ffffff
         	inactive_workspace #333333 #222222 #888888
         	urgent_workspace   #2f343a #900000 #ffffff
@@ -202,7 +202,7 @@ bar {
 }
 
 # class                 border  backgr. text    indicator child_border
-client.focused          #0CCC68 #0CCC68 #ffffff #0CCC68   #0CCC68
+client.focused          #11aaaa #11aaaa #ffffff #11aaaa   #11aaaa
 client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
 client.unfocused        #333333 #222222 #888888 #292d2e   #222222
 client.urgent           #2f343a #900000 #ffffff #900000   #900000
