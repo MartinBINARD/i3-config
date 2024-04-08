@@ -22,7 +22,8 @@
 ## Step 4 : i3wm config
 
 - Make a backup of i3 config : `mv i3 i3.backup`
-- Clone `git clone https://github.com/MartinBINARD/i3-config/tree/main/.config/i3 i3`
+- Move into config repo : `cd .config/`
+- Clone this custom i3 repo `:`git clone https://github.com/MartinBINARD/i3`
 
 ## OLD COMMAND REMINDER
 
