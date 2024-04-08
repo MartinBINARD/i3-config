@@ -4,10 +4,21 @@
 
 - A basic tiling window manager with installation commands reminder and config files.
 
+## Step 1 : i3wm
+
+- Run `sudo apt install i3 i3blocks i3lock i3status xorg lightdm`
+- Reboot
+
+## Step 2 : terminal
+
+- Run `sudo apt install kitty`
+- Create .xsessionrc & copy content of .xsessionrc
+- Reboot
+
 ## Command to run
 
 ```
-sudo apt install i3 xorg lightdm slick-greeter lightdm-settings lxappearance nitrogen arandr pcmanfm firefox-esr pulseaudio alsa-utils pavucontrol terminator blueman network-manager-gnome thunar libreoffice bleachbit flameshot gparted file-roller htop neofetch vlc bc calculator xpdf redshift xautolock rofi git
+sudo apt install i3 xorg lightdm kitty slick-greeter lightdm-settings lxappearance nitrogen arandr pcmanfm firefox-esr pulseaudio alsa-utils pavucontrol blueman network-manager-gnome thunar libreoffice bleachbit flameshot gparted file-roller htop neofetch vlc bc calculator xpdf redshift xautolock rofi git
 ```
 
 ## Rofi

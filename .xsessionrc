@@ -1,0 +1,6 @@
+export TERMINAL=/usr/bin/kitty
+
+setxkbmap fr
+
+xset off
+xset -dpms
