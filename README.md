@@ -17,7 +17,7 @@
 
 ## Step 3 : transparency & rofi
 
-- Run `sudo apt install gpick rofi picom sysstat flameshot thunar`
+- Run `sudo apt install git gpick rofi picom sysstat flameshot thunar`
 
 ## Step 4 : i3wm config
 
