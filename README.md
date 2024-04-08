@@ -32,6 +32,17 @@
 - Link binaries to the last path : `ls -1 | xargs -I {} ln -s $PWD/{} $HOME/.local/bin/{}`
 - Link the picom file : `ln -s $PWD/picom.conf $HOME/.config/`
 - Reload i3 : command + Shift + R
+- Run to activate picom compositor : `pciom --config picom.conf`
+
+## Step 6 : i3blocks bar
+
+- Clone & clone : `git clone https://github.com/MartinBINARD/i3blocks.git ~/.config/i3blocks`
+- Install dependencies : `sudo apt install build-essential autoconf pkg-config`
+- In Downloads repo : `git clone https://github.com/vivien/i3blocks.git`
+- Then run : `./autogen.sh`
+- Then run : `./configure`
+- Install with `make`
+- Install with `sudo make install`
 
 ## OLD COMMAND REMINDER
 
