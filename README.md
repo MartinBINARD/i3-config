@@ -17,13 +17,13 @@
 
 ## Step 3 : transparency & rofi
 
-- Run `sudo apt install gpick rofi picom flameshot thunar`
+- Run `sudo apt install gpick rofi picom sysstat flameshot thunar`
 
 ## Step 4 : i3wm config
 
 - Make a backup of i3 config : `mv i3 i3.backup`
 - Move into config repo : `cd .config/`
-- Clone this custom i3 repo `:`git clone https://github.com/MartinBINARD/i3`
+- Clone this custom i3 repo :`git clone https://github.com/MartinBINARD/i3`
 
 ## OLD COMMAND REMINDER
 
