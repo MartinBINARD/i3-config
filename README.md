@@ -24,6 +24,14 @@
 - Make a backup of i3 config : `mv i3 i3.backup`
 - Move into config repo : `cd .config/`
 - Clone this custom i3 repo :`git clone https://github.com/MartinBINARD/i3`
+- Give the rights : `chmod +x ~/.config/* && chmod +x ~/.config/*/*`
+
+## Step 5 : relative links
+
+- Create the repo for relative links : `mkdir ~/.local/bin/`
+- Link binaries to the last path : `ls -1 | xargs -I {} ln -s $PWD/{} $HOME/.local/bin/{}`
+- Link the picom file : `ln -s $PWD/picom.conf $HOME/.config/`
+- Reload i3 : command + Shift + R
 
 ## OLD COMMAND REMINDER
 
