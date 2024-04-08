@@ -15,7 +15,16 @@
 - Create .xsessionrc & copy content of .xsessionrc
 - Reboot
 
-## Command to run
+## Step 3 : transparency & rofi
+
+- Run `sudo apt install gpick rofi picom flameshot thunar`
+
+## Step 4 : i3wm config
+
+- Make a backup of i3 config : `mv i3 i3.backup`
+- Clone `git clone https://github.com/MartinBINARD/i3-config/tree/main/.config/i3 i3`
+
+## OLD COMMAND REMINDER
 
 ```
 sudo apt install i3 xorg lightdm kitty slick-greeter lightdm-settings lxappearance nitrogen arandr pcmanfm firefox-esr pulseaudio alsa-utils pavucontrol blueman network-manager-gnome thunar libreoffice bleachbit flameshot gparted file-roller htop neofetch vlc bc calculator xpdf redshift xautolock rofi git
