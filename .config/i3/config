@@ -223,9 +223,9 @@ exec --no-startup-id -time 2 -locker "i3lock -c 000000"
 exec --no-startup-id nm-applet
 
 # App shortcut
-bindsym $mod+w exec --no-startup-id firefox-esr
+bindsym $mod+w exec --no-startup-id firefox
 bindsym $mod+n exec --no-startup-id thunar
-bindsym $mod+c exec --no-startup-id codium
+bindsym $mod+c exec --no-startup-id code
 bindsym $mod+b exec --no-startup-id bleachbit
 
 # Monitor
