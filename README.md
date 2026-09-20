@@ -7,7 +7,18 @@
 ## Command to run
 
 ```
-sudo apt install i3 xorg lightdm slick-greeter lightdm-settings lxappearance nitrogen arandr pcmanfm firefox pulseaudio alsa-utils pavucontrol terminator blueman network-manager-gnome thunar libreoffice bleachbit flameshot gparted file-roller htop neofetch vlc bc calculator xpdf redshift xautolock rofi git materia-gtk-theme papirus-icon-theme
+sudo apt install -y i3 xorg lightdm light-gtk-greeter lightdm-settings lxappearance nitrogen arandr autoarandr picom dusnt feh pcmanfm flameshot brightnessctl xss-lock firefox pavucontrol blueman network-manager-gnome thunar libreoffice libreoffce-l10n-fr zathura bleachbit flameshot gparted file-roller htop neofetch vlc xpdf redshift xautolock rofi git materia-gtk-theme papirus-icon-theme fonts-jetbrains-mono fonts-font-awesome
+```
+
+### Sound card
+
+```
+sudo apt install -y pulseaudio alsa-utils or sudo apt install -y pulse pulse-wire wireplumber
+```
+
+### Graphic Card
+```
+sudo apt install -y nvidia-driver nvidia-cuda-toolkit libvulkan1
 ```
 
 ## Rofi
@@ -22,3 +33,18 @@ rofi-theme-selector
 
 - In `Edit` → `Configure custom actions...` → `:ferris_wheel:` (edit action menu) → Insert a custom command indicating the current terminal in the command entry
 - Ex : `/usr/bin/terminator`
+
+## Annoying Beep
+
+- To disable the annoying beep, run the following command :
+```
+sudo modprobe -r pcspkr
+```
+
+- To remove the beep permanently :
+```
+/etc/modprobe.d/nobeep.conf
+
+blacklist pcspkr
+blacklist snd_pcsp
+```
