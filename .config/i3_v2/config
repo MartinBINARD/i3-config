@@ -1,49 +1,102 @@
-# Variables
+# ============================================================
+# COLOR SCHEME
+# ============================================================
+set $bg #000000
+set $fg #ffffff
+set $accent #11aaaa
+set $urgent #900000
+set $border #333333
+
+# ============================================================
+# VARIABLES
+# ============================================================
 set $mod Mod4
 set $term alacritty
 set $menu rofi -show drun -show-icons
 
 font pango:JetBrains Mono 10
 
-# Startup
+# ============================================================
+# WINDOW COLORS
+# class                 border        backgr.       text          indicator     child_border
+client.focused          $accent       $accent       $bg           $accent       $accent
+client.focused_inactive $border       $border       $fg           $border       $border
+client.unfocused        $bg           $bg           $fg           $bg           $bg
+client.urgent           $urgent       $urgent       $bg           $urgent       $urgent
+client.placeholder      $border       $bg           $fg           $border       $border
+client.background       $bg
+
+# ============================================================
+# BORDERS
+# ============================================================
+default_border pixel 1
+default_floating_border pixel 1
+hide_edge_borders smart
+
+# ============================================================
+# AUTOSTART
+# ============================================================
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id nm-applet
 exec --no-startup-id picom --daemon
 exec --no-startup-id dunst
 exec --no-startup-id autorandr --change
 exec --no-startup-id nitrogen --restore
-exec --no-startup-id xss-lock -- i3lock -c 1e1e2e
-exec --no-startup-id sh -c 'if setxkbmap -query | grep -Eq "layout:[[:space:]]*fr"; then printf FR; else setxkbmap us; printf US; fi > /tmp/i3-keyboard-layout'
+exec --no-startup-id feh --bg-scale ~/Images/wallpaper.jpg
+exec --no-startup-id xss-lock -- i3lock -c 1c1b19
+exec --no-startup-id setxkbmap us
+exec --no-startup-id redshift -c ~/.config/redshift.conf
+exec --no-startup-id setxkbmap us && echo "US" > ~/.config/i3/keyboard_layout
 
-# Audio
+# ============================================================
+# SHORTCUTS — APPLICATIONS
+# ============================================================
+floating_modifier $mod
+tiling_drag modifier titlebar
+bindsym $mod+Return exec $term
+bindsym $mod+d exec --no-startup-id $menu
+bindsym $mod+b exec --no-startup-id firefox-esr
+bindsym $mod+n exec --no-startup-id thunar
+bindsym $mod+c exec --no-startup-id code
+bindsym Print exec flameshot gui
+bindsym $mod+Print exec flameshot full
+
+# Lock
+bindsym $mod+Shift+l exec i3lock -c 1c1b19
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Quit i3?' -B 'Yes, quit' 'i3-msg exit'"
+
+# ============================================================
+# KEYBOARD TOGGLE — US / FR
+# ============================================================
+bindsym $mod+l exec --no-startup-id ~/.config/i3/toggle-keyboard.sh
+
+# ============================================================
+# SHORTCUTS — I3 MANAGEMENT
+# ============================================================
+bindsym $mod+q kill
+bindsym $mod+Shift+r restart
+bindsym $mod+Shift+c reload
+
+# ============================================================
+# SHORTCUTS — AUDIO (Fn keys)
+# ============================================================
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
-# Applications and session
-floating_modifier $mod
-tiling_drag modifier titlebar
-bindsym $mod+Return exec $term
-bindsym $mod+d exec --no-startup-id $menu
-bindsym $mod+q kill
-bindsym $mod+Shift+r restart
-bindsym $mod+Shift+c reload
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Quitter i3 ?' -B 'Oui' 'i3-msg exit'"
-bindsym $mod+Shift+l exec i3lock -c 1e1e2e
-bindsym $mod+Ctrl+l exec --no-startup-id sh -c 'if setxkbmap -query | grep -Eq "layout:[[:space:]]*fr"; then setxkbmap us; printf US > /tmp/i3-keyboard-layout; else setxkbmap fr; printf FR > /tmp/i3-keyboard-layout; fi; killall -SIGUSR1 i3status'
-bindsym $mod+b exec --no-startup-id firefox-esr
-bindsym $mod+n exec --no-startup-id thunar
-bindsym $mod+c exec --no-startup-id code
-bindsym $mod+Print exec flameshot full
-bindsym Print exec flameshot gui
-
-# Brightness
+# ============================================================
+# SHORTCUTS — BRIGHTNESS (Fn keys)
+# ============================================================
 bindsym XF86MonBrightnessUp exec brightnessctl set +10%
 bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
 
-# Navigation
+# ============================================================
+# WINDOW NAVIGATION
+# Directional arrows (always available)
+# hjk; (vim-style without l, which is reserved for the keyboard)
+# ============================================================
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
@@ -51,12 +104,19 @@ bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
+bindsym $mod+semicolon focus right
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+semicolon move right
 
-# Layouts
+# ============================================================
+# LAYOUTS
+# ============================================================
 bindsym $mod+Ctrl+h split h
 bindsym $mod+Ctrl+v split v
 bindsym $mod+f fullscreen toggle
@@ -68,16 +128,18 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
-# Workspaces
-set $ws1 "1:Dev"
-set $ws2 "2:Web"
-set $ws3 "3:Docs"
-set $ws4 "4:Media"
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9:Ollama"
+# ============================================================
+# WORKSPACES
+# ============================================================
+set $ws1  "1:Dev"
+set $ws2  "2:Web"
+set $ws3  "3:Docs"
+set $ws4  "4:Media"
+set $ws5  "5"
+set $ws6  "6"
+set $ws7  "7"
+set $ws8  "8"
+set $ws9  "9:AI"
 set $ws10 "10:Sys"
 
 bindsym $mod+1 workspace $ws1
@@ -102,46 +164,19 @@ bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
-assign [class="Code"] $ws1
-assign [class="Firefox"] $ws2
-assign [class="libreoffice*"] $ws3
-assign [class="vlc"] $ws4
-assign [class="Zathura"] $ws3
+# Assign apps to workspaces
+assign [class="Code"]           $ws1
+assign [class="Firefox"]        $ws2
+assign [class="libreoffice*"]   $ws3
+assign [class="Zathura"]        $ws3
+assign [class="vlc"]            $ws4
 
-# Resize mode
-mode "resize" {
-    bindsym Left resize shrink width 10 px or 10 ppt
-    bindsym Down resize grow height 10 px or 10 ppt
-    bindsym Up resize shrink height 10 px or 10 ppt
-    bindsym Right resize grow width 10 px or 10 ppt
-    bindsym h resize shrink width 10 px or 10 ppt
-    bindsym j resize grow height 10 px or 10 ppt
-    bindsym k resize shrink height 10 px or 10 ppt
-    bindsym l resize grow width 10 px or 10 ppt
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-bindsym $mod+r mode "resize"
-
-# Appearance
-set $bg #000000
-set $fg #ffffff
-set $accent #11aaaa
-set $urgent #900000
-set $border #333333
-
-client.focused $accent $accent $bg $accent $accent
-client.focused_inactive $border $border $fg $border $border
-client.unfocused $bg $bg $fg $bg $bg
-client.urgent $urgent $urgent $bg $urgent $urgent
-
-default_border pixel 2
-default_floating_border pixel 2
-hide_edge_borders smart
-
-for_window [class="Pavucontrol"] floating enable, resize set 800 500
-for_window [class="Arandr"] floating enable
-for_window [class="lxappearance"] floating enable
+# ============================================================
+# DEFAULT FLOATING WINDOWS
+# ============================================================
+for_window [class="Pavucontrol"]           floating enable, resize set 800 500
+for_window [class="Arandr"]               floating enable
+for_window [class="lxappearance"]         floating enable
 for_window [class="nm-connection-editor"] floating enable
 
 # Monitor workspace assignment
@@ -150,24 +185,48 @@ workspace $ws2 output HDMI-1
 workspace $ws3 output eDP-1
 workspace $ws4 output HDMI-1
 
-# Status bar
+# ============================================================
+# RESIZE MODE
+# ============================================================
+mode "resize" {
+    bindsym Left  resize shrink width  10 px or 10 ppt
+    bindsym Down  resize grow   height 10 px or 10 ppt
+    bindsym Up    resize shrink height 10 px or 10 ppt
+    bindsym Right resize grow   width  10 px or 10 ppt
+    bindsym h     resize shrink width  10 px or 10 ppt
+    bindsym j     resize grow   height 10 px or 10 ppt
+    bindsym k     resize shrink height 10 px or 10 ppt
+    bindsym semicolon resize grow width 10 px or 10 ppt
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+# ============================================================
+# STATUS BAR — SRCERY COLORS
+# ============================================================
 bar {
     status_command i3status -c ~/.config/i3/i3status.conf
     position top
-    font pango:JetBrains Mono 10
+    font pango:JetBrains Mono, Font Awesome 6 Free 10
+    tray_output primary
+
     colors {
-        background #000000
-        statusline #11aaaa
-        separator #ffffff
-        focused_workspace #11aaaa #11aaaa #ffffff
-        active_workspace #333333 #5F676A #ffffff
-        inactive_workspace #333333 #222222 #888888
-        urgent_workspace #2f343a #900000 #ffffff
-        binding_mode #2f343a #900000 #ffffff
+        background $bg
+        statusline $fg
+        separator  $border
+
+        focused_workspace  $accent $accent $bg
+        active_workspace   $border $border $fg
+        inactive_workspace $border $bg     $fg
+        urgent_workspace   $urgent $urgent $fg
+        binding_mode       #FBB829 #FBB829 #000000
     }
 }
 
-# Redshift
+# ============================================================
+# REDSHIFT MODE
+# ============================================================
 set $mode_redshift Redshift: (a)uto, (r)eset, (2)500K, (3)000K, (4)000K, (5)000K
 bindsym Ctrl+r mode "$mode_redshift"
 
