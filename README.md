@@ -46,6 +46,18 @@ convert ~/Pictures/wallpapers/wallpapers.jpg -blur 0x8 ~/.config/i3/lockscreen.p
 - In `Edit` → `Configure custom actions...` → `:ferris_wheel:` (edit action menu) → Insert a custom command indicating the current terminal in the command entry
 - Ex : `/usr/bin/terminator`
 
+## Customize lightdm GTK greeter
+```
+sudo cp ~/Pictures/wallpapers/wallpapers.jpg /usr/share/pixmaps/wallpapers.jpg
+```
+- Then, in :
+```
+/etc/lightdm/lightdm-gtk-greeter.conf
+
+[greeter]
+background = /usr/share/pixmaps/wallpapers.jpg
+```
+
 ## Annoying Beep
 
 - To disable the annoying beep, run the following command :
