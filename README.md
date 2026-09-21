@@ -60,3 +60,16 @@ sudo modprobe -r pcspkr
 blacklist pcspkr
 blacklist snd_pcsp
 ```
+
+## Remove GRUB menu
+```
+sudo nano /etc/default/grub
+```
+```
+GRUB_DEFAULT=0
+GRUB_TIMEOUT=0
+GRUB_TIMEOUT_STYLE=hidden
+```
+```
+sudo update-grub
+```
