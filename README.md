@@ -28,7 +28,19 @@ sudo apt install -y nvidia-driver nvidia-cuda-toolkit libvulkan1
 ```
 rofi-theme-selector
 ```
+### Desktop wallpaper and lock screen image
+```
+sudo apt install -y imagemagick
+```
 
+- Always convert in .png format for i3  :
+
+```
+convert ~/Pictures/wallpapers/wallpapers.jpg ~/.config/i3/lockscreen.png
+
+// For blur style
+convert ~/Pictures/wallpapers/wallpapers.jpg -blur 0x8 ~/.config/i3/lockscreen.png
+```
 ## Thunar
 
 - In `Edit` → `Configure custom actions...` → `:ferris_wheel:` (edit action menu) → Insert a custom command indicating the current terminal in the command entry
